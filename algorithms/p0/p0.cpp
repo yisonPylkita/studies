@@ -33,22 +33,21 @@ template <typename T>
 void print_table(const T &data, const std::string &name, unsigned line_size)
 {
     const unsigned data_size = data.size();
-        if (data_size == 0) {
-            std::cout << "Table " << name << " is empty\n";
-            return;
-        }
-        std::cout << "Table " << name << ", size "<< data_size << "\n";
+	if (data_size == 0) {
+		std::cout << "Table " << name << " is empty\n";
+		return;
+	}
+	std::cout << "Table " << name << ", size "<< data_size << "\n";
 
-        
-        unsigned curr_line_size = 0;
-        for (unsigned i = 0; i < data_size; i++) {
-            std::cout << data[i] << ", ";
-            curr_line_size++;
-            if (curr_line_size > line_size) {
-                curr_line_size = 0;
-                std::cout << "\n";
-            }
-        }
+	unsigned curr_line_size = 0;
+	for (unsigned i = 0; i < data_size; i++) {
+		std::cout << data[i] << ", ";
+		curr_line_size++;
+		if (curr_line_size > line_size) {
+			curr_line_size = 0;
+			std::cout << "\n";
+		}
+	}
 }
 
 template <typename T>
