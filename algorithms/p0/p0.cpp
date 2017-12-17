@@ -33,21 +33,21 @@ template <typename T>
 void print_table(const T &data, const std::string &name, unsigned line_size)
 {
     const unsigned data_size = data.size();
-	if (data_size == 0) {
-		std::cout << "Table " << name << " is empty\n";
-		return;
-	}
-	std::cout << "Table " << name << ", size "<< data_size << "\n";
+    if (data_size == 0) {
+        std::cout << "Table " << name << " is empty\n";
+        return;
+    }
+    std::cout << "Table " << name << ", size " << data_size << "\n";
 
-	unsigned curr_line_size = 0;
-	for (unsigned i = 0; i < data_size; i++) {
-		std::cout << data[i] << ", ";
-		curr_line_size++;
-		if (curr_line_size > line_size) {
-			curr_line_size = 0;
-			std::cout << "\n";
-		}
-	}
+    unsigned curr_line_size = 0;
+    for (unsigned i = 0; i < data_size; i++) {
+        std::cout << data[i] << ", ";
+        curr_line_size++;
+        if (curr_line_size > line_size) {
+            curr_line_size = 0;
+            std::cout << "\n";
+        }
+    }
 }
 
 template <typename T>
@@ -58,8 +58,8 @@ void selection_sort(T &vec)
     for (int i = 0; i < vec_size; i++) {
         min_elem = i;
         for (int j = i + 1; j < vec_size; j++)
-          if (vec[j] < vec[min_elem])
-            min_elem = j;
+            if (vec[j] < vec[min_elem])
+                min_elem = j;
         std::swap(vec[min_elem], vec[i]);
     }
 }
@@ -77,30 +77,30 @@ int main()
 
     for (auto &x : A)
         x = dis(gen);
-     unsigned average = arithmetic_mean(A);
-     print_table(A, "A", k);
-     
-     // 1.
-     std::vector<unsigned> B;
-     std::vector<unsigned> C;
-     for (auto x : A) {
-         if (x > average)
-             B.push_back(x);
-         else
-             C.push_back(x);
-     }
+    unsigned average = arithmetic_mean(A);
+    print_table(A, "A", k);
 
-     // 2.
-     print_table(B, "B", k);
-     print_table(C, "C", k);
+    // 1.
+    std::vector<unsigned> B;
+    std::vector<unsigned> C;
+    for (auto x : A) {
+        if (x > average)
+            B.push_back(x);
+        else
+            C.push_back(x);
+    }
 
-     // 3.
-     selection_sort(A);
-     selection_sort(B);
-     selection_sort(C);
+    // 2.
+    print_table(B, "B", k);
+    print_table(C, "C", k);
 
-     //4.
-     print_table(A, "B", k);
-     print_table(B, "B", k);
-     print_table(C, "C", k);
+    // 3.
+    selection_sort(A);
+    selection_sort(B);
+    selection_sort(C);
+
+    //4.
+    print_table(A, "B", k);
+    print_table(B, "B", k);
+    print_table(C, "C", k);
 }
